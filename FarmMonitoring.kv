@@ -1,0 +1,145 @@
+Manager:
+    HomeScreen:
+    FirstScreen:
+
+<HomeScreen>:
+    name: "Home"
+    GridLayoutEg:
+        Button:
+            size_hint: 0.2, 0.25
+            background_normal: "button3_image.png"
+            background_down: "button3pressed.png"
+            on_press: root.toggle_weed()
+
+        Button:
+            size_hint: 0.2, 0.25
+            background_normal: "button4_image.png"
+            background_down: "button4pressed.png"
+            on_press: root.toggle_pest()
+
+        Button:
+            size_hint: 0.2, 0.25
+            background_normal: "button5_image.png"
+            background_down: "button5pressed.png"
+            on_press:
+                app.root.current = "First"
+                root.manager.transition.direction = "left"
+
+        Widget:
+        Widget:
+        Widget:
+        Widget:
+        Widget:
+
+<FirstScreen>:
+    name:"First"
+    canvas.before:
+        Color:
+            rgba: (1, 1, 1, 1)
+        Rectangle:
+            source: r"farm.png"
+            size: root.width, root.height
+            pos: self.pos
+    BoxLayoutEg:
+    GridLayout:
+        rows:5
+        cols:5
+        padding: "60dp"
+        spacing: "50dp"
+        Widget:
+        Widget:
+        Widget:
+        Widget:
+        Widget:
+        Widget:
+        Widget:
+        Widget:
+        Widget:
+        Widget:
+        Widget:
+        Widget:
+        Widget:
+        Widget:
+        Widget:
+            size_hint: 0.8, 1
+        Widget:
+            size_hint: 0.8, 1
+        Widget:
+            size_hint: 0.8, 1
+        Button:
+            size_hint: 0.8, 1
+            background_normal: "back_image.png"
+            background_down: "backpressed.png"
+            on_press:
+                app.stop()
+                app.root.current = "Home"
+                root.manager.transition.direction = "right"
+        Widget:
+            size_hint: 0.8, 1
+        Widget:
+            size_hint: 0.8, 1
+        Widget:
+            size_hint: 0.8, 1
+        Widget:
+        Widget:
+        Widget:
+        Widget:
+
+<BoxLayoutEg>:
+    padding: "10dp"
+    spacing: "100dp"
+    Widget:
+        size_hint: 0.2, 0.1
+    Button:
+        size_hint: 0.2, 0.1
+        background_normal: "cow_image.png"
+        background_down: "cowpressed.png"
+        pos_hint:{"right":1, "top":.5}
+        on_press:root.cow(self)
+    Button:
+        size_hint: 0.2, 0.1
+        background_normal: "goat_image.png"
+        background_down: "goatpressed.png"
+        pos_hint:{"right":1, "top":.5}
+        on_press:root.goat(self)
+    Button:
+        size_hint: 0.2, 0.1
+        background_normal: "horse_image.png"
+        background_down: "horsepressed.png"
+        pos_hint:{"right":.5, "top":0.5}
+        on_press:root.horse(self)
+    Widget:
+        size_hint: 0.2, 0.1
+
+<GridLayoutEg>:
+    rows: 3
+    cols: 5
+    padding: "10dp"
+    spacing: "10dp"
+    canvas.before:
+        Color:
+            rgba: (1, 1, 1, 1)
+        Rectangle:
+            source: r"farm.png"
+            size: root.width, root.height
+            pos: self.pos
+
+    # Empty widgets to occupy first and last column in each row
+    Widget:
+    Widget:
+    Widget:
+    Widget:
+    Widget:
+
+    Button:
+        size_hint: 0.2, 0.25
+        background_normal: "button1_image.png"
+        background_down: "button1pressed.png"
+        on_press: root.croprecommendation()
+
+    Button:
+        size_hint:.2,.25
+        background_normal: "button2_image.png"
+        background_down: "button2pressed.png"
+        on_press: root.toggle_disease()
+
